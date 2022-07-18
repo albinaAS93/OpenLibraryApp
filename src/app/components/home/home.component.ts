@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -8,9 +9,11 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class HomeComponent implements OnInit {
 
-  books: any;
-  list: any;
+  public books = [] as any;
+
   data: any;
+  title: any;
+  author: any;
 
   constructor(private dataService: DataService) { }
 
@@ -18,11 +21,8 @@ export class HomeComponent implements OnInit {
     this.booksList();
   }
 
-  booksList(): void {
-    console.log(this.books.data);
-    this.dataService.getBooks().subscribe(res => {
-      this.books = res;
-    });
+  booksList() {
+
   }
 
 }
