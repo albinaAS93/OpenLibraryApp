@@ -8,9 +8,8 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class HomeComponent implements OnInit {
 
-  books: any;
-  list: any;
-  data: any;
+    data: any;
+    books: any;
 
   constructor(private dataService: DataService) { }
 
@@ -19,9 +18,9 @@ export class HomeComponent implements OnInit {
   }
 
   booksList(): void {
-    console.log(this.books.data);
     this.dataService.getBooks().subscribe(res => {
-      this.books = res;
+      this.data = res;
+      this.books = this.data.works;
     });
   }
 
